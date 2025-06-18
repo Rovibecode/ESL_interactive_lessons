@@ -5,293 +5,466 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ESL Interactive Lessons: Welcome!</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #FFD166 0%, #FF6B6B 100%); /* More vibrant gradient background */
-            animation: backgroundShift 20s ease infinite alternate; /* Slower, subtle background animation */
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            position: relative;
         }
-        @keyframes backgroundShift {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
+        
+        /* Animated background particles */
+        .bg-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
         }
-        .chinese-text {
-            font-family: "Noto Sans TC", sans-serif;
-            font-size: 1.1rem;
-            color: #073B4C; /* Dark blue from palette */
+        
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
         }
-        .card-animation {
-            animation: fadeInScale 0.8s ease-out forwards;
-            background: linear-gradient(145deg, #ffffff, #f9f9f9); /* Subtle gradient for card */
-            position: relative; /* For mascot positioning */
-            overflow: hidden; /* Ensure mascot stays within bounds */
+        
+        .particle:nth-child(1) { width: 80px; height: 80px; left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { width: 60px; height: 60px; left: 20%; animation-delay: 2s; }
+        .particle:nth-child(3) { width: 100px; height: 100px; left: 35%; animation-delay: 4s; }
+        .particle:nth-child(4) { width: 40px; height: 40px; left: 50%; animation-delay: 6s; }
+        .particle:nth-child(5) { width: 70px; height: 70px; left: 65%; animation-delay: 8s; }
+        .particle:nth-child(6) { width: 90px; height: 90px; left: 80%; animation-delay: 10s; }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10%, 90% { opacity: 1; }
+            50% { transform: translateY(-100px) rotate(180deg); }
         }
-        .nav-animation {
-            animation: fadeInSlideDown 0.8s ease-out forwards;
-            opacity: 0; /* Start hidden */
-            transform: translateY(-20px); /* Start slightly above */
+        
+        /* Glassmorphism effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
         }
-        @keyframes fadeInScale {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
+        
+        .glass-dark {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
-        @keyframes fadeInSlideDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+        
+        /* Navigation pills */
+        .nav-pill {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            padding: 12px 24px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
         }
-        .bounce-button {
-            transition: all 0.2s ease-in-out;
-            transform-origin: center;
+        
+        .nav-pill:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
-        .bounce-button:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        
+        .nav-pill::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s;
         }
-        /* Delay navigation animation slightly */
-        .nav-animation a:nth-child(1) { animation-delay: 0.2s; }
-        .nav-animation a:nth-child(2) { animation-delay: 0.3s; }
-        .nav-animation a:nth-child(3) { animation-delay: 0.4s; }
-        .nav-animation a:nth-child(4) { animation-delay: 0.5s; }
-
-        /* Mascot Styling and Animations */
+        
+        .nav-pill:hover::before {
+            left: 100%;
+        }
+        
+        /* Cute mascot improvements - larger and more detailed */
         .mascot-container {
             position: absolute;
-            bottom: -30px; /* Adjusted vertical position to bottom */
-            right: -30px; /* Adjusted horizontal position to right */
-            width: 140px; /* Overall size */
-            height: 140px;
-            overflow: hidden;
-            pointer-events: none; /* Allows clicks to pass through */
-            z-index: 1;
-            animation: floatUpDown 5s ease-in-out infinite alternate;
+            bottom: -30px;
+            right: -30px;
+            width: 160px;
+            height: 160px;
+            z-index: 10;
+            animation: bounce 3s ease-in-out infinite;
         }
-
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-12px); }
+            60% { transform: translateY(-6px); }
+        }
+        
         .mascot-body {
             width: 90px;
             height: 90px;
-            background: linear-gradient(135deg, #06D6A0, #05a87b); /* Green from palette */
-            border-radius: 45% 55% 50% 50% / 50% 50% 45% 55%; /* More organic shape */
+            background: linear-gradient(135deg, #ff6b9d, #c44569);
+            border-radius: 45% 55% 50% 50% / 50% 50% 45% 55%;
             position: absolute;
-            left: 20px;
-            top: 40px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            left: 35px;
+            top: 50px;
+            box-shadow: 0 15px 40px rgba(196, 69, 105, 0.4);
+            border: 3px solid rgba(255, 255, 255, 0.3);
         }
         
         .mascot-head {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, #06D6A0, #05a87b);
+            width: 75px;
+            height: 75px;
+            background: linear-gradient(135deg, #ff6b9d, #c44569);
             border-radius: 50%;
             position: absolute;
-            top: 5px; /* Position above body */
-            left: 35px;
+            top: 15px;
+            left: 42px;
             z-index: 2;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 25px rgba(196, 69, 105, 0.3);
+            border: 3px solid rgba(255, 255, 255, 0.3);
         }
-
+        
         .mascot-ear {
             width: 20px;
-            height: 30px;
-            background-color: #06D6A0; /* Green from palette */
+            height: 28px;
+            background: linear-gradient(135deg, #ff6b9d, #c44569);
             border-radius: 50% 50% 0 0;
             position: absolute;
-            top: 0px;
-            z-index: 0; /* Behind head */
-            transform-origin: bottom center;
+            top: 8px;
+            animation: wiggle 4s ease-in-out infinite;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 12px rgba(196, 69, 105, 0.2);
         }
-        .mascot-ear:nth-child(1) {
-            left: 30px; /* Left ear relative to mascot-container */
-            transform: rotate(-15deg);
+        
+        .mascot-ear:nth-child(1) { left: 32px; transform: rotate(-20deg); }
+        .mascot-ear:nth-child(2) { left: 88px; transform: rotate(20deg); }
+        
+        .mascot-ear::after {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 12px;
+            background: linear-gradient(135deg, #ff8fab, #d63584);
+            border-radius: 50% 50% 0 0;
+            top: 4px;
+            left: 50%;
+            transform: translateX(-50%);
         }
-        .mascot-ear:nth-child(2) {
-            left: 90px; /* Right ear relative to mascot-container */
-            transform: rotate(15deg);
+        
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-20deg); }
+            50% { transform: rotate(-10deg); }
         }
-
-
-        .mascot-eye-outer {
-            width: 25px;
-            height: 25px;
-            background-color: white;
+        
+        .mascot-eye {
+            width: 24px;
+            height: 24px;
+            background: white;
             border-radius: 50%;
             position: absolute;
-            top: 20px; /* Relative to head */
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            z-index: 3;
+            top: 20px;
+            box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.1);
         }
-        .mascot-eye-outer:nth-child(1) {
-            left: 10px;
-        }
-        .mascot-eye-outer:nth-child(2) {
-            left: 35px;
-        }
-
-        .mascot-eye-inner {
+        
+        .mascot-eye:nth-child(1) { left: 12px; }
+        .mascot-eye:nth-child(2) { left: 39px; }
+        
+        .mascot-pupil {
             width: 10px;
             height: 10px;
-            background-color: #073B4C; /* Dark blue for pupil */
+            background: #2c3e50;
             border-radius: 50%;
             position: absolute;
-            top: 7px; /* Relative to eye-outer */
+            top: 7px;
             left: 7px;
+            animation: blink 6s infinite;
         }
-        .mascot-eye-sparkle {
-            width: 4px;
-            height: 4px;
-            background-color: white;
+        
+        .mascot-pupil::after {
+            content: '';
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: white;
             border-radius: 50%;
-            position: absolute;
-            top: 2px; /* Relative to eye-outer */
-            left: 15px;
+            top: 2px;
+            left: 2px;
         }
-
-        .mascot-mouth {
-            width: 30px;
-            height: 15px;
-            background-color: #FF6B6B; /* Red-orange for mouth */
-            border-radius: 0 0 15px 15px;
-            position: absolute;
-            top: 45px;
-            left: 20px; /* Relative to head */
-            display: flex;
-            justify-content: center;
-            align-items: flex-end;
-            overflow: hidden;
-            border: 2px solid #073B4C; /* Outline */
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-        .mascot-tongue {
-            width: 15px;
-            height: 8px;
-            background-color: #FFD166; /* Yellow for tongue */
-            border-radius: 0 0 5px 5px;
-            position: absolute;
-            bottom: 0;
-        }
-
-
-        .mascot-cheek-blush {
-            width: 15px;
-            height: 8px;
-            background-color: rgba(255, 107, 107, 0.6); /* Semi-transparent red blush */
-            border-radius: 50%;
-            position: absolute;
-            top: 40px; /* Relative to head */
-            z-index: 3;
-            box-shadow: 0 0 5px rgba(255, 107, 107, 0.4);
-        }
-        .mascot-cheek-blush:nth-child(1) {
-            left: 5px;
-        }
-        .mascot-cheek-blush:nth-child(2) {
-            left: 50px;
-        }
-
-        .mascot-arm {
-            width: 45px;
-            height: 25px;
-            background-color: #118AB2; /* Blue for arm */
-            border-radius: 12px;
-            position: absolute;
-            top: 70px; /* Adjusted to be slightly lower than head */
-            left: 90px; /* Position next to body */
-            transform-origin: 5px 12px; /* Rotate from the "shoulder" */
-            animation: wave 2s ease-in-out infinite alternate;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-        }
-
-        @keyframes floatUpDown {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-10px); }
-        }
-
-        @keyframes wave {
-            0% { transform: rotate(0deg); }
-            50% { transform: rotate(20deg); }
-            100% { transform: rotate(0deg); }
-        }
-
+        
         @keyframes blink {
-            0%, 20%, 40%, 60%, 80%, 100% { transform: scaleY(1); }
-            2% { transform: scaleY(0.1); }
+            0%, 90%, 100% { transform: scaleY(1); }
+            95% { transform: scaleY(0.1); }
+        }
+        
+        .mascot-mouth {
+            width: 26px;
+            height: 14px;
+            background: #e74c3c;
+            border-radius: 0 0 26px 26px;
+            position: absolute;
+            top: 42px;
+            left: 24px;
+            border: 2px solid #c0392b;
+            box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
+        }
+        
+        .mascot-mouth::after {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 6px;
+            background: #ff6b9d;
+            border-radius: 0 0 12px 12px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .mascot-cheek {
+            width: 12px;
+            height: 8px;
+            background: rgba(255, 182, 193, 0.8);
+            border-radius: 50%;
+            position: absolute;
+            top: 35px;
+            box-shadow: 0 0 8px rgba(255, 182, 193, 0.6);
+        }
+        
+        .mascot-cheek:nth-child(1) { left: 8px; }
+        .mascot-cheek:nth-child(2) { left: 55px; }
+        
+        .mascot-arm {
+            width: 35px;
+            height: 20px;
+            background: linear-gradient(135deg, #ff6b9d, #c44569);
+            border-radius: 20px;
+            position: absolute;
+            top: 75px;
+            left: 115px;
+            transform-origin: 5px 10px;
+            animation: wave 3s ease-in-out infinite;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 12px rgba(196, 69, 105, 0.2);
+        }
+        
+        @keyframes wave {
+            0%, 100% { transform: rotate(10deg); }
+            50% { transform: rotate(35deg); }
+        }
+        
+        /* Modern button styles */
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        /* Card animations */
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .fade-in-delay {
+            animation: fadeInUp 0.8s ease-out 0.3s forwards;
+            opacity: 0;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive grid for navigation */
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Cute icons */
+        .lesson-icon {
+            display: inline-block;
+            font-size: 1.5rem;
+            margin-right: 8px;
         }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-800 antialiased min-h-screen flex flex-col items-center justify-center py-12">
-
-    <!-- Palette: Energetic & Playful (#FF6B6B, #FFD166, #06D6A0, #118AB2, #073B4C) -->
-    
-    <div class="container mx-auto p-4 md:p-8 lg:p-12 max-w-4xl">
-
-        <!-- Navigation Bar -->
-        <nav class="bg-[#073B4C] p-4 rounded-lg shadow-xl mb-8 nav-animation">
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-                <a href="ESL_interactive_lesson_plan_1.html" class="text-white hover:text-[#FFD166] font-semibold text-lg transition-colors duration-300 px-3 py-1 rounded-md hover:bg-[#118AB2] bounce-button">
-                    Daily Routines (Lesson 1)
-                </a>
-                <a href="ESL_interactive_lesson_plan_2_travel_adventure.html" class="text-white hover:text-[#FFD166] font-semibold text-lg transition-colors duration-300 px-3 py-1 rounded-md hover:bg-[#118AB2] bounce-button">
-                    Travel Adventures (Lesson 2)
-                </a>
-                <a href="ESL_interactive_lesson_3.html" class="text-white hover:text-[#FFD166] font-semibold text-lg transition-colors duration-300 px-3 py-1 rounded-md hover:bg-[#118AB2] bounce-button">
-                    Hobbies and Free Time Activities (Lesson 3)
-                </a>
-                <a href="ESL_interactive_lesson_4.html" class="text-white hover:text-[#FFD166] font-semibold text-lg transition-colors duration-300 px-3 py-1 rounded-md hover:bg-[#118AB2] bounce-button">
-                    Amazing Animals and Nature (Lesson 4)
-                </a>
-                <a href="#" class="text-white hover:text-[#FFD166] font-semibold text-lg transition-colors duration-300 px-3 py-1 rounded-md hover:bg-[#118AB2] bounce-button">
-                    Food and Culture (Coming Soon)
-                </a>
-            </div>
-        </nav>
-
-        <!-- Intro Card -->
-        <div class="bg-white p-8 md:p-10 rounded-lg shadow-xl text-center card-animation">
-            <!-- Animated Mascot -->
-            <div class="mascot-container">
-                <div class="mascot-ear" style="left: 30px;"></div>
-                <div class="mascot-ear" style="left: 90px;"></div>
-                <div class="mascot-head">
-                    <div class="mascot-eye-outer">
-                        <div class="mascot-eye-inner"></div>
-                        <div class="mascot-eye-sparkle"></div>
-                    </div>
-                    <div class="mascot-eye-outer" style="left: 35px;">
-                        <div class="mascot-eye-inner"></div>
-                        <div class="mascot-eye-sparkle"></div>
-                    </div>
-                    <div class="mascot-mouth"><div class="mascot-tongue"></div></div>
-                    <div class="mascot-cheek-blush"></div>
-                    <div class="mascot-cheek-blush" style="left: 50px;"></div>
-                </div>
-                <div class="mascot-body"></div>
-                <div class="mascot-arm"></div>
-            </div>
-
-            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-[#073B4C]">
-                Welcome to <span class="text-[#FFD166]">ESL Interactive Lessons!</span> 🎉
-            </h1>
-            <p class="text-xl md:text-2xl font-light text-[#118AB2] mb-6">
-                Engaging and effective ways to learn English.
-            </p>
-
-            <p class="text-lg text-gray-700 leading-relaxed mb-8">
-                Dive into dynamic lessons designed for all levels, from kids to adults! Our interactive approach focuses on practical communication skills, making learning English fun and intuitive. Explore topics like daily routines, travel, hobbies, food, culture, grammar essentials, vocabulary building, and more, all presented in an engaging and accessible format.
-            </p>
-
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="ESL_interactive_lesson_plan_1.html" class="bg-[#06D6A0] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-[#05a87b] transition duration-300 transform hover:scale-105 bounce-button">
-                    Start Learning!
-                </a>
-            
-            </div>
-
-            <p class="text-sm text-gray-500 mt-8">
-                Created with passion for language learning. 💖
-            </p>
-        </div>
-
+<body>
+    <!-- Animated background -->
+    <div class="bg-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
     </div>
 
+    <div class="relative z-10 min-h-screen py-8 px-4">
+        <div class="max-w-6xl mx-auto">
+            
+            <!-- Header -->
+            <div class="text-center mb-12 fade-in">
+                <h1 class="text-5xl md:text-6xl font-bold text-white mb-4">
+                    ESL Interactive
+                    <span class="bg-gradient-to-r from-pink-300 to-yellow-300 bg-clip-text text-transparent">
+                        Lessons
+                    </span>
+                    ✨
+                </h1>
+                <p class="text-xl text-white/80 font-light">
+                    Learn English in the most fun and engaging way possible!
+                </p>
+            </div>
+
+            <!-- Navigation Cards -->
+            <div class="nav-grid mb-12 fade-in-delay">
+                <a href="ESL_interactive_lesson_plan_1.html" class="nav-pill text-center">
+                    <span class="lesson-icon">🌅</span>
+                    Daily Routines
+                    <div class="text-sm opacity-75 mt-1">Lesson 1</div>
+                </a>
+                
+                <a href="ESL_interactive_lesson_plan_2_travel_adventure.html" class="nav-pill text-center">
+                    <span class="lesson-icon">✈️</span>
+                    Travel Adventures
+                    <div class="text-sm opacity-75 mt-1">Lesson 2</div>
+                </a>
+                
+                <a href="ESL_interactive_lesson_3.html" class="nav-pill text-center">
+                    <span class="lesson-icon">🎨</span>
+                    Hobbies & Free Time
+                    <div class="text-sm opacity-75 mt-1">Lesson 3</div>
+                </a>
+                
+                <a href="ESL_interactive_lesson_4.html" class="nav-pill text-center">
+                    <span class="lesson-icon">🦋</span>
+                    Animals & Nature
+                    <div class="text-sm opacity-75 mt-1">Lesson 4</div>
+                </a>
+                
+                <a href="#" class="nav-pill text-center opacity-75">
+                    <span class="lesson-icon">🍜</span>
+                    Food & Culture
+                    <div class="text-sm opacity-75 mt-1">Coming Soon</div>
+                </a>
+            </div>
+
+            <!-- Main Content Card -->
+            <div class="glass p-8 md:p-12 text-center relative overflow-hidden fade-in-delay">
+                <!-- Cute Mascot -->
+                <div class="mascot-container">
+                    <div class="mascot-ear"></div>
+                    <div class="mascot-ear"></div>
+                    <div class="mascot-head">
+                        <div class="mascot-eye">
+                            <div class="mascot-pupil"></div>
+                        </div>
+                        <div class="mascot-eye">
+                            <div class="mascot-pupil"></div>
+                        </div>
+                        <div class="mascot-mouth"></div>
+                        <div class="mascot-cheek"></div>
+                        <div class="mascot-cheek"></div>
+                    </div>
+                    <div class="mascot-body"></div>
+                    <div class="mascot-arm"></div>
+                </div>
+
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                        Welcome to Your English Learning Journey! 🚀
+                    </h2>
+                    
+                    <p class="text-lg text-white/90 leading-relaxed mb-8">
+                        Dive into dynamic lessons designed for all levels, from kids to adults! Our interactive approach focuses on practical communication skills, making learning English fun and intuitive. Explore topics like daily routines, travel, hobbies, food, culture, grammar essentials, vocabulary building, and more.
+                    </p>
+
+
+
+                    <!-- Feature highlights -->
+                    <div class="grid md:grid-cols-3 gap-6 mt-8 text-center">
+                        <div class="glass-dark p-6 rounded-2xl">
+                            <div class="text-3xl mb-3">🎮</div>
+                            <h3 class="text-white font-semibold mb-2">Interactive Games</h3>
+                            <p class="text-white/70 text-sm">Learn through fun, engaging activities that make studying feel like playing!</p>
+                        </div>
+                        
+                        <div class="glass-dark p-6 rounded-2xl">
+                            <div class="text-3xl mb-3">📱</div>
+                            <h3 class="text-white font-semibold mb-2">Mobile Friendly</h3>
+                            <p class="text-white/70 text-sm">Study anywhere, anytime on any device. Perfect for busy learners!</p>
+                        </div>
+                        
+                        <div class="glass-dark p-6 rounded-2xl">
+                            <div class="text-3xl mb-3">🎯</div>
+                            <h3 class="text-white font-semibold mb-2">Practical Skills</h3>
+                            <p class="text-white/70 text-sm">Focus on real-world communication that you'll actually use!</p>
+                        </div>
+                    </div>
+
+                    <p class="text-white/60 text-sm mt-8 text-center">
+                        Created with 💖 for language learners everywhere
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
