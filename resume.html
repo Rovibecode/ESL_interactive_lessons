@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roland Craeye - Corporate English Trainer Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* Light gray background */
+            color: #374151; /* Dark gray text */
+            font-size: 0.9rem; /* Slightly reduced base font size */
+        }
+        .resume-container {
+            max-width: 210mm; /* A4 width */
+            margin: 2rem auto;
+            background-color: #ffffff;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 0.75rem; /* Rounded corners */
+        }
+        h1, h2, h3 {
+            color: #1f2937; /* Darker headings */
+        }
+        h1 {
+            font-size: 2rem; /* text-4xl reduced */
+            font-weight: 700; /* font-bold */
+        }
+        h2 {
+            font-size: 1.4rem; /* text-2xl reduced */
+            font-weight: 600; /* font-semibold */
+            margin-top: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        h3 {
+            font-size: 1.1rem; /* text-xl reduced */
+            font-weight: 600; /* font-semibold */
+            margin-top: 1rem;
+        }
+        .contact-info p, .contact-info a {
+            font-size: 0.85rem; /* Slightly smaller for conciseness */
+            line-height: 1.3;
+        }
+        .experience-item, .education-item, .skills-list li {
+            margin-bottom: 0.5rem;
+        }
+        .experience-item ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+            margin-top: 0.25rem;
+            font-size: 0.85rem; /* Ensure list items are also smaller */
+        }
+        .skills-list ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .skills-list li strong {
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+        .skills-list p { /* Apply font size to skill paragraphs */
+            font-size: 0.85rem;
+        }
+        .print-button-container {
+            text-align: center;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+        .print-button {
+            background-color: #3b82f6; /* Blue */
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .print-button:hover {
+            background-color: #2563eb; /* Darker blue on hover */
+        }
+
+        /* Print-specific styles */
+        @media print {
+            body {
+                background-color: #ffffff;
+                margin: 0;
+                padding: 0;
+                font-size: 9pt; /* Even smaller for print to maximize one-page fit */
+            }
+            .resume-container {
+                box-shadow: none;
+                margin: 0;
+                padding: 0.5rem; /* Adjust padding for print */
+                max-width: 100%;
+                border-radius: 0;
+            }
+            .print-button-container {
+                display: none; /* Hide print button when printing */
+            }
+            h1 { font-size: 16pt; }
+            h2 { font-size: 12pt; }
+            h3 { font-size: 10pt; }
+            .contact-info p, .contact-info a { font-size: 8pt; }
+            .experience-item ul li, .education-item p, .skills-list p { font-size: 8pt; }
+            .education-item p.text-sm { font-size: 7pt; } /* Smaller for credential IDs */
+            .image-group { /* Ensure images stay side-by-side in print */
+                flex-direction: row !important;
+                justify-content: flex-end !important;
+                align-items: center !important;
+            }
+            .image-group img {
+                margin-left: 0.5rem !important; /* Small margin between images */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-button-container">
+        <button class="print-button" onclick="window.print()">Print Resume</button>
+    </div>
+
+    <div class="resume-container">
+        <div class="flex flex-col sm:flex-row items-center sm:items-start justify-between mb-6">
+            <div class="text-center sm:text-left flex-grow">
+                <h1 class="text-4xl font-bold text-gray-900 leading-tight mb-2">C. Roland Craeye</h1>
+                <div class="contact-info text-gray-700">
+                    <p>0976215527</p>
+                    <p class="font-bold">r.craeye@gmail.com</p>
+                    <p><a href="https://www.linkedin.com/in/rolandcraeye" target="_blank" class="text-blue-600 hover:underline">linkedin.com/in/rolandcraeye</a></p>
+                    <p class="font-bold">US Citizen</p>
+                </div>
+            </div>
+            <div class="mt-4 sm:mt-0 flex-shrink-0 flex items-center space-x-2 image-group">
+                <!-- Headshot Placeholder - now square with rounded corners -->
+                <img src="https://placehold.co/100x100/A0A0A0/FFFFFF?text=Headshot" alt="Headshot Placeholder" class="rounded-lg w-24 h-24 object-cover border-2 border-gray-300">
+                <!-- LINE QR Code Placeholder -->
+                <img src="https://placehold.co/100x100/A0A0A0/FFFFFF?text=LINE+QR+Code" alt="LINE QR Code" class="rounded-lg w-24 h-24 object-cover border-2 border-gray-300">
+            </div>
+        </div>
+
+        <section class="mb-6">
+            <h2 class="text-2xl font-semibold border-b-2 border-gray-300 pb-2 mb-4">Summary</h2>
+            <p class="text-gray-700 leading-relaxed">
+                <span class="font-bold">Open to a challenging Corporate English Trainer position in Douliu City, Taiwan (or nearby)</span>, I am a highly accomplished and results-oriented English language professional. Leveraging a strong background in Coaching, Project Management, and Business Development, and extensive experience in cross-cultural communication, training, and strategic planning, I am competent at developing and delivering customized language programs that enhance the professional communication skills of engineers and corporate personnel, having successfully helped professionals develop global communication skills and drive tangible improvements in business English proficiency.
+            </p>
+        </section>
+
+        <section class="mb-6">
+            <h2 class="text-2xl font-semibold border-b-2 border-gray-300 pb-2 mb-4">Experience</h2>
+
+            <div class="experience-item mb-4">
+                <h3 class="text-xl font-semibold text-gray-800">Principal Consultant | Global Operator Systems · Self-employed</h3>
+                <p class="text-gray-600">Taiwan · Hybrid | Jan 2025 – Present · 7 mos</p>
+                <ul class="list-disc ml-6 text-gray-700">
+                    <li>Develops and implements AI-enhanced income systems designed for remote professionals, traders, and global operators, optimizing financial performance.</li>
+                    <li>Leads private consulting projects, integrating automation, digital strategy, and career performance optimization to achieve client objectives.</li>
+                    <li>Operates across Asia, the US, and Europe, building agile systems that facilitate rapid income generation for internationally mobile professionals.</li>
+                    <li>Spearheads the launch of specialized tools and products for global work, meticulously designed by operators, for operators.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item mb-4">
+                <h3 class="text-xl font-semibold text-gray-800">Founder & Mentor | Yournomadscool.com · Self-employed</h3>
+                <p class="text-gray-600">Asia · Remote | Jun 2024 – Present · 1 yr 2 mos</p>
+                <ul class="list-disc ml-6 text-gray-700">
+                    <li>Creates and delivers remote work mastery programs, guiding nomads in designing sustainable income strategies across diverse international markets.</li>
+                    <li>Develops and implements frameworks for location-independent client acquisition, strategic niche positioning, and income diversification.</li>
+                    <li>Mentors individuals on optimizing career performance and building resilient, globally-oriented income stacks.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item mb-4">
+                <h3 class="text-xl font-semibold text-gray-800">English Teacher | Cram School: The Achievers - 雲林縣超越私立英語補習班</h3>
+                <p class="text-gray-600">Douliu, Taiwan | 2024 – 2025</p>
+                <ul class="list-disc ml-6 text-gray-700">
+                    <li>Implemented innovative teaching strategies to move beyond rote memorization, fostering an engaging and interactive learning environment for students across elementary to senior high school (Grades 1-11).</li>
+                    <li>Cultivated a portfolio of private tutoring clients (both children and adults), consistently providing approximately 6 hours of personalized instruction per week.</li>
+                </ul>
+            </div>
+
+            <!-- Placeholder for Previous Job Title if applicable -->
+            <!--
+            <div class="experience-item mb-4">
+                <h3 class="text-xl font-semibold text-gray-800">[Previous Job Title] | [Previous Company Name]</h3>
+                <p class="text-gray-600">[City, Country] | [Start Date] – [End Date]</p>
+                <ul class="list-disc ml-6 text-gray-700">
+                    <li>[Key Achievement 1: Focus on transferable skills. If you have any prior teaching, tutoring, or mentoring experience, highlight it here.]</li>
+                    <li>[Key Achievement 2: Example: "Mentored junior colleagues, providing guidance on professional development and communication best practices."]</li>
+                </ul>
+            </div>
+            -->
+        </section>
+
+        <section class="mb-6">
+            <h2 class="text-2xl font-semibold border-b-2 border-gray-300 pb-2 mb-4">Education</h2>
+
+            <div class="education-item mb-2">
+                <p class="font-semibold text-gray-800">Bachelor of Communication Sciences | KU Leuven - Belgium</p>
+                <p class="text-gray-600">1988 - 1992</p>
+            </div>
+
+            <div class="education-item mb-2">
+                <p class="font-semibold text-gray-800">Texas Teaching License</p>
+                <p class="text-gray-600">The State of Texas Education Agency | 2023/2028</p>
+            </div>
+
+            <div class="education-item mb-2">
+                <p class="font-semibold text-gray-800">Certified ScrumMaster® (CSM®)</p>
+                <p class="text-gray-600">Scrum Alliance | 2023</p>
+                <p class="text-gray-600 text-sm">Credential ID: Certified ScrumMaster® (CSM®)</p>
+            </div>
+
+            <div class="education-item mb-2">
+                <p class="font-semibold text-gray-800">Scrum Fundamentals Certified (SFC)</p>
+                <p class="text-gray-600">Vabro.ai and VMEdu.com | 2023</p>
+                <p class="text-gray-600 text-sm">Credential ID: 966537</p>
+            </div>
+
+            <div class="education-item mb-2">
+                <p class="font-semibold text-gray-800">TESOL</p>
+                <p class="text-gray-600">Global Leadership College | 2012</p>
+            </div>
+
+            <div class="education-item mb-2">
+                <p class="font-semibold text-gray-800">Trained Health & Wellness Coach</p>
+                <p class="text-gray-600">Wellcoaches Corporation, Institute of Coaching (Harvard Extension) | 2014</p>
+                <p class="text-gray-600 text-sm">Endorsed by the American College of Sports Medicine.</p>
+            </div>
+        </section>
+
+        <section class="mb-6">
+            <h2 class="text-2xl font-semibold border-b-2 border-gray-300 pb-2 mb-4">Skills</h2>
+            <div class="skills-list text-gray-700">
+                <p><strong class="text-gray-800">Language Proficiency:</strong> English (Native/Fluent), Dutch (Fluent), French (Intermediate), Mandarin Chinese (Beginner)</p>
+                <p><strong class="text-gray-800">Teaching & Training:</strong> Corporate Training, Business English, Technical English, Curriculum Development, Adult Learning Principles, Needs Assessment, Workshop Facilitation, Presentation Skills, IELTS/TOEFL/TOEIC Preparation</p>
+                <p><strong class="text-gray-800">Professional Skills:</strong> Cross-Cultural Communication, Strategic Planning, Project Management, Client Relationship Management, Problem-Solving, Analytical Thinking, Risk Communication ("Mitigation Playbook"), Agile Methodologies (Scrum, Kanban), Business Analysis, OKRs, Six Sigma, Sales & Marketing</p>
+                <p><strong class="text-gray-800">Software/Tools:</strong> AI/ML Platforms (e.g., Generative AI tools, Data Analytics), Advanced Collaboration Suites (e.g., Microsoft 365, Google Workspace), Project & Workflow Management (e.g., Jira, Asana, Notion), CRM/Sales Automation, Digital Marketing Platforms, Video Conferencing (e.g., Zoom, Google Meet, Microsoft Teams)</p>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="text-2xl font-semibold border-b-2 border-gray-300 pb-2 mb-4">Additional Information</h2>
+            <ul class="list-disc ml-6 text-gray-700">
+                <li>Current Residency: Taiwan (Douliu City), offering immediate local availability.</li>
+                <li>Strong Interpersonal Skills: Proven ability to build rapport and effectively engage with diverse professional groups.</li>
+                <li>Adaptability: Highly adaptable to new environments and learning methodologies.</li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>
