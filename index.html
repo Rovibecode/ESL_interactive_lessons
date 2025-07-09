@@ -71,9 +71,13 @@
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
-            display: inline-block;
+            display: flex; /* Changed to flex */
+            flex-direction: column; /* Stack icon and text */
+            align-items: center; /* Center content horizontally */
+            justify-content: center; /* Center content vertically */
             position: relative;
             overflow: hidden;
+            min-height: 120px; /* Ensure consistent height for pills */
         }
         
         .nav-pill:hover {
@@ -339,9 +343,17 @@
         
         /* Cute icons */
         .lesson-icon {
-            display: inline-block;
-            font-size: 1.5rem;
-            margin-right: 8px;
+            display: flex; /* Use flexbox for centering SVG */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            font-size: 1.5rem; /* Fallback for emoji */
+            margin-bottom: 8px; /* Space between icon and text */
+            height: 32px; /* Ensure consistent height for icons */
+        }
+
+        .lesson-icon svg {
+            width: 32px; /* Set SVG width */
+            height: 32px; /* Set SVG height */
         }
     </style>
 </head>
@@ -373,41 +385,41 @@
                 </p>
             </div>
 
-            <!-- Navigation Cards -->
+            <!-- Navigation Cards for General Lessons -->
             <div class="nav-grid mb-12 fade-in-delay">
-                <a href="ESL_interactive_lesson_plan_1.html" class="nav-pill text-center">
+                <a href="esl-lesson-plan.html" class="nav-pill text-center">
                     <span class="lesson-icon">🌅</span>
                     Daily Routines
                     <div class="text-sm opacity-75 mt-1">Lesson 1</div>
                 </a>
                 
-                <a href="ESL_interactive_lesson_plan_2_travel_adventure.html" class="nav-pill text-center">
+                <a href="esl-lesson-travel.html" class="nav-pill text-center">
                     <span class="lesson-icon">✈️</span>
                     Travel Adventures
                     <div class="text-sm opacity-75 mt-1">Lesson 2</div>
                 </a>
                 
-                <a href="ESL_interactive_lesson_3.html" class="nav-pill text-center">
+                <a href="esl-lesson-hobbies.html" class="nav-pill text-center">
                     <span class="lesson-icon">🎨</span>
                     Hobbies & Free Time
                     <div class="text-sm opacity-75 mt-1">Lesson 3</div>
                 </a>
                 
-                <a href="ESL_interactive_lesson_4.html" class="nav-pill text-center">
+                <a href="esl-lesson-nature.html" class="nav-pill text-center">
                     <span class="lesson-icon">🦋</span>
                     Animals & Nature
                     <div class="text-sm opacity-75 mt-1">Lesson 4</div>
                 </a>
                 
-                <a href="ESL_interactive_lesson_5.html" class="nav-pill text-center opacity-75">
+                <a href="esl-lesson-food-culture.html" class="nav-pill text-center opacity-75">
                     <span class="lesson-icon">🍜</span>
                     Food & Culture
                     <div class="text-sm opacity-75 mt-1">Lesson 5</div>
                 </a>
                 
-                <a href="ESL_interactive_lesson_6.html" class="nav-pill text-center opacity-75">
+                <a href="esl-lesson-people-family.html" class="nav-pill text-center opacity-75">
                     <span class="lesson-icon">🧑‍🤝‍🧑</span>
-                    Describing People & Family 
+                    Describing People & Family
                     <div class="text-sm opacity-75 mt-1">Lesson 6</div>
                 </a>
 
@@ -423,47 +435,50 @@
                     <div class="text-sm opacity-75 mt-1">Coming Soon</div>
                 </a>
                 
-                <a href="ESL_interactive_lesson_6.html" class="nav-pill text-center opacity-75">
+                <a href="#" class="nav-pill text-center opacity-75">
                     <span class="lesson-icon">🧘‍♀️</span>
-                    Health & Wellness 
+                    Health & Wellness
                     <div class="text-sm opacity-75 mt-1">Coming Soon</div>
                 </a>
-                    <div>
-                        <div class="my-12 py-4 w-full text-center font-extrabold text-3xl text-[#FFD166] border-b-4 border-[#118AB2] tracking-wide">
-                        English for Business Series
-                        <div class="business-row flex flex-row justify-center gap-8">
-                        
-            
-                    <a href="Effective_Business_Meetings_Presentations.html" class="nav-pill text-center opacity-75">
+            </div>
+
+            <!-- English for Business Series Title -->
+            <div class="my-12 py-4 w-full text-center font-extrabold text-3xl text-[#FFD166] border-b-4 border-[#118AB2] tracking-wide">
+                English for Business Series
+            </div>
+
+            <!-- Navigation Cards for Business Lessons -->
+            <div class="nav-grid mb-12 fade-in-delay">
+                <a href="esl-lesson-business-meetings.html" class="nav-pill text-center opacity-75">
                     <span class="lesson-icon">
-                    <svg class="w-8 h-8 mx-auto text-[#FFD166]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1l-.75-3M3 17h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                    </svg>
+                        <svg class="w-8 h-8 mx-auto text-[#FFD166]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1l-.75-3M3 17h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
                     </span>
                     Effective Business Meetings & Presentations
                     <div class="text-sm opacity-75 mt-1">Enter</div>
                 </a>
-               <a href="#" class="nav-pill text-center opacity-75">
+                
+                <a href="#" class="nav-pill text-center opacity-75">
                     <span class="lesson-icon">
-                    <svg class="w-8 h-8 mx-auto text-[#FFD166]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M7 7a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm10 0a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path>
-                    </svg>
+                        <svg class="w-8 h-8 mx-auto text-[#FFD166]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M7 7a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm10 0a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
                     </span>
                     Cross-Cultural Business Communication
                     <div class="text-sm opacity-75 mt-1">Coming Soon</div>
                 </a>
-               <a href="#" class="nav-pill text-center opacity-75">
-                <span class="lesson-icon">
-                <svg class="w-8 h-8 mx-auto text-[#FFD166]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5s3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18s-3.332.477-4.5 1.253"></path>
-                </svg>
-                </span>
-                Problem-Solving & Decision-Making in Business
-                <div class="text-sm opacity-75 mt-1">Coming Soon</div>
+                
+                <a href="#" class="nav-pill text-center opacity-75">
+                    <span class="lesson-icon">
+                        <svg class="w-8 h-8 mx-auto text-[#FFD166]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5s3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18s-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </span>
+                    Problem-Solving & Decision-Making in Business
+                    <div class="text-sm opacity-75 mt-1">Coming Soon</div>
                 </a>
             </div>
-             </div>
-             </div>
 
             <!-- Main Content Card -->
             <div class="glass p-8 md:p-12 text-center relative overflow-hidden fade-in-delay">
@@ -495,8 +510,6 @@
                         Dive into dynamic lessons designed for all levels, from kids to adults! Our interactive approach focuses on practical communication skills, making learning English fun and intuitive. Explore topics like daily routines, travel, hobbies, food, culture, grammar essentials, vocabulary building, and more.
                     </p>
 
-
-
                     <!-- Feature highlights -->
                     <div class="grid md:grid-cols-3 gap-6 mt-8 text-center">
                         <div class="glass-dark p-6 rounded-2xl">
@@ -517,32 +530,30 @@
                             <p class="text-white/70 text-sm">Focus on real-world communication that you'll actually use!</p>
                         </div>
                     </div>
-                   <div class="max-w-lg mx-auto mt-16 p-8 rounded-3xl shadow-2xl bg-white/10 backdrop-blur-md border border-white/20" style="box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);">
-  <a href="curriculum_lesson_1_20.html"
-     class="block text-white font-bold py-3 px-8 rounded-full shadow-lg hover:opacity-90 transition duration-300 transform hover:scale-105"
-     style="background: linear-gradient(135deg, #ff6b9d, #c44569); text-align: center;">
-    Curriculum Roadmap
-  </a>
-  <p class="text-white/60 text-sm mt-8 text-center">
-    Created with 💖 for language learners everywhere
-  </p>
-  <div class="text-center mt-8 text-sm">
-    <a href="https://rovibecode.github.io/ESL_interactive_lessons/resume.html" target="_blank" rel="noopener"
-       class="text-white/70 hover:text-white font-bold underline transition">
-      View teacher resume/CV.
-    </a>
-  </div>
-  <div class="text-center text-sm text-white/70 mt-4">
-    <a href="https://line.me/ti/p/8aTx6bdZyh" target="_blank" class="underline hover:text-white">
-      Contact website designer  -   聯絡老師/網站設計師
-    </a>
-  </div>
-</div>
+                    <div class="max-w-lg mx-auto mt-16 p-8 rounded-3xl shadow-2xl bg-white/10 backdrop-blur-md border border-white/20" style="box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);">
+                        <a href="curriculum_lesson_1_20.html"
+                           class="block text-white font-bold py-3 px-8 rounded-full shadow-lg hover:opacity-90 transition duration-300 transform hover:scale-105"
+                           style="background: linear-gradient(135deg, #ff6b9d, #c44569); text-align: center;">
+                            Curriculum Roadmap
+                        </a>
+                        <p class="text-white/60 text-sm mt-8 text-center">
+                            Created with 💖 for language learners everywhere
+                        </p>
+                        <div class="text-center mt-8 text-sm">
+                            <a href="https://rovibecode.github.io/ESL_interactive_lessons/resume.html" target="_blank" rel="noopener"
+                               class="text-white/70 hover:text-white font-bold underline transition">
+                                View teacher resume/CV.
+                            </a>
+                        </div>
+                        <div class="text-center text-sm text-white/70 mt-4">
+                            <a href="https://line.me/ti/p/8aTx6bdZyh" target="_blank" class="underline hover:text-white">
+                                Contact website designer  -  聯絡老師/網站設計師
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-       
-
     </div>
-        
 </body>
 </html>
