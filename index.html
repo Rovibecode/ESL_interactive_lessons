@@ -13,7 +13,7 @@
             min-height: 100vh;
             position: relative;
         }
-        
+
         /* Animated background particles */
         .bg-particles {
             position: fixed;
@@ -24,27 +24,27 @@
             pointer-events: none;
             z-index: 0;
         }
-        
+
         .particle {
             position: absolute;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             animation: float 20s infinite ease-in-out;
         }
-        
+
         .particle:nth-child(1) { width: 80px; height: 80px; left: 10%; animation-delay: 0s; }
         .particle:nth-child(2) { width: 60px; height: 60px; left: 20%; animation-delay: 2s; }
         .particle:nth-child(3) { width: 100px; height: 100px; left: 35%; animation-delay: 4s; }
         .particle:nth-child(4) { width: 40px; height: 40px; left: 50%; animation-delay: 6s; }
         .particle:nth-child(5) { width: 70px; height: 70px; left: 65%; animation-delay: 8s; }
         .particle:nth-child(6) { width: 90px; height: 90px; left: 80%; animation-delay: 10s; }
-        
+
         @keyframes float {
             0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
             10%, 90% { opacity: 1; }
             50% { transform: translateY(-100px) rotate(180deg); }
         }
-        
+
         /* Glassmorphism effect */
         .glass {
             background: rgba(255, 255, 255, 0.25);
@@ -53,13 +53,13 @@
             border: 1px solid rgba(255, 255, 255, 0.18);
             box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
         }
-        
+
         .glass-dark {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
-        
+
         /* Navigation pills */
         .nav-pill {
             background: rgba(255, 255, 255, 0.2);
@@ -71,21 +71,21 @@
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
-            display: flex; /* Changed to flex */
-            flex-direction: column; /* Stack icon and text */
-            align-items: center; /* Center content horizontally */
-            justify-content: center; /* Center content vertically */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             position: relative;
             overflow: hidden;
-            min-height: 120px; /* Ensure consistent height for pills */
+            min-height: 120px;
         }
-        
+
         .nav-pill:hover {
             background: rgba(255, 255, 255, 0.3);
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
-        
+
         .nav-pill::before {
             content: '';
             position: absolute;
@@ -96,11 +96,11 @@
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: left 0.6s;
         }
-        
+
         .nav-pill:hover::before {
             left: 100%;
         }
-        
+
         /* Cute mascot improvements - larger and more detailed */
         .mascot-container {
             position: absolute;
@@ -111,13 +111,13 @@
             z-index: 10;
             animation: bounce 3s ease-in-out infinite;
         }
-        
+
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
             40% { transform: translateY(-12px); }
             60% { transform: translateY(-6px); }
         }
-        
+
         .mascot-body {
             width: 90px;
             height: 90px;
@@ -129,7 +129,7 @@
             box-shadow: 0 15px 40px rgba(196, 69, 105, 0.4);
             border: 3px solid rgba(255, 255, 255, 0.3);
         }
-        
+
         .mascot-head {
             width: 75px;
             height: 75px;
@@ -142,7 +142,7 @@
             box-shadow: 0 8px 25px rgba(196, 69, 105, 0.3);
             border: 3px solid rgba(255, 255, 255, 0.3);
         }
-        
+
         .mascot-ear {
             width: 20px;
             height: 28px;
@@ -154,10 +154,10 @@
             border: 2px solid rgba(255, 255, 255, 0.3);
             box-shadow: 0 4px 12px rgba(196, 69, 105, 0.2);
         }
-        
+
         .mascot-ear:nth-child(1) { left: 32px; transform: rotate(-20deg); }
         .mascot-ear:nth-child(2) { left: 88px; transform: rotate(20deg); }
-        
+
         .mascot-ear::after {
             content: '';
             position: absolute;
@@ -169,12 +169,12 @@
             left: 50%;
             transform: translateX(-50%);
         }
-        
+
         @keyframes wiggle {
             0%, 100% { transform: rotate(-20deg); }
             50% { transform: rotate(-10deg); }
         }
-        
+
         .mascot-eye {
             width: 24px;
             height: 24px;
@@ -185,10 +185,10 @@
             box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.1);
             border: 1px solid rgba(0, 0, 0, 0.1);
         }
-        
+
         .mascot-eye:nth-child(1) { left: 12px; }
         .mascot-eye:nth-child(2) { left: 39px; }
-        
+
         .mascot-pupil {
             width: 10px;
             height: 10px;
@@ -199,7 +199,7 @@
             left: 7px;
             animation: blink 6s infinite;
         }
-        
+
         .mascot-pupil::after {
             content: '';
             position: absolute;
@@ -210,12 +210,12 @@
             top: 2px;
             left: 2px;
         }
-        
+
         @keyframes blink {
             0%, 90%, 100% { transform: scaleY(1); }
             95% { transform: scaleY(0.1); }
         }
-        
+
         .mascot-mouth {
             width: 26px;
             height: 14px;
@@ -227,7 +227,7 @@
             border: 2px solid #c0392b;
             box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
         }
-        
+
         .mascot-mouth::after {
             content: '';
             position: absolute;
@@ -239,7 +239,7 @@
             left: 50%;
             transform: translateX(-50%);
         }
-        
+
         .mascot-cheek {
             width: 12px;
             height: 8px;
@@ -249,10 +249,10 @@
             top: 35px;
             box-shadow: 0 0 8px rgba(255, 182, 193, 0.6);
         }
-        
+
         .mascot-cheek:nth-child(1) { left: 8px; }
         .mascot-cheek:nth-child(2) { left: 55px; }
-        
+
         .mascot-arm {
             width: 35px;
             height: 20px;
@@ -266,12 +266,12 @@
             border: 2px solid rgba(255, 255, 255, 0.3);
             box-shadow: 0 4px 12px rgba(196, 69, 105, 0.2);
         }
-        
+
         @keyframes wave {
             0%, 100% { transform: rotate(10deg); }
             50% { transform: rotate(35deg); }
         }
-        
+
         /* Modern button styles */
         .btn-primary {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -286,12 +286,12 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .btn-primary:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
         }
-        
+
         .btn-primary::before {
             content: '';
             position: absolute;
@@ -302,21 +302,21 @@
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: left 0.5s;
         }
-        
+
         .btn-primary:hover::before {
             left: 100%;
         }
-        
+
         /* Card animations */
         .fade-in {
             animation: fadeInUp 0.8s ease-out forwards;
         }
-        
+
         .fade-in-delay {
             animation: fadeInUp 0.8s ease-out 0.3s forwards;
             opacity: 0;
         }
-        
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -327,38 +327,37 @@
                 transform: translateY(0);
             }
         }
-        
+
         /* Responsive grid for navigation */
         .nav-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 16px;
         }
-        
+
         @media (max-width: 768px) {
             .nav-grid {
                 grid-template-columns: 1fr;
             }
         }
-        
+
         /* Cute icons */
         .lesson-icon {
-            display: flex; /* Use flexbox for centering SVG */
-            justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
-            font-size: 1.5rem; /* Fallback for emoji */
-            margin-bottom: 8px; /* Space between icon and text */
-            height: 32px; /* Ensure consistent height for icons */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            height: 32px;
         }
 
         .lesson-icon svg {
-            width: 32px; /* Set SVG width */
-            height: 32px; /* Set SVG height */
+            width: 32px;
+            height: 32px;
         }
     </style>
 </head>
 <body>
-    <!-- Animated background -->
     <div class="bg-particles">
         <div class="particle"></div>
         <div class="particle"></div>
@@ -371,7 +370,8 @@
    <div class="relative z-10 min-h-screen py-8 px-4">
     <div class="max-w-6xl mx-auto">
         <div class="flex items-center justify-center mb-12 fade-in">
-            <img src="teachTWcom_logo_1.png" alt="Logo" class="h-[164px] w-[164px] mr-4"> <div class="text-center">
+            <img src="teachTWcom_logo_1.png" alt="Logo" class="h-[150px] w-[150px] mr-4">
+            <div class="text-center">
                 <h1 class="text-5xl md:text-6xl font-bold text-white mb-4">
                     ESL Interactive
                     <span class="bg-gradient-to-r from-pink-300 to-yellow-300 bg-clip-text text-transparent">
@@ -387,38 +387,37 @@
     </div>
 </div>
 
-            <!-- Navigation Cards for General Lessons -->
             <div class="nav-grid mb-12 fade-in-delay">
                 <a href="ESL_interactive_lesson_plan_1.html" class="nav-pill text-center">
                     <span class="lesson-icon">🌅</span>
                     Daily Routines
                     <div class="text-sm opacity-75 mt-1">Lesson 1</div>
                 </a>
-                
+
                 <a href="ESL_interactive_lesson_plan_2_travel_adventure.html" class="nav-pill text-center">
                     <span class="lesson-icon">✈️</span>
                     Travel Adventures
                     <div class="text-sm opacity-75 mt-1">Lesson 2</div>
                 </a>
-                
+
                 <a href="ESL_interactive_lesson_3.html" class="nav-pill text-center">
                     <span class="lesson-icon">🎨</span>
                     Hobbies & Free Time
                     <div class="text-sm opacity-75 mt-1">Lesson 3</div>
                 </a>
-                
+
                 <a href="ESL_interactive_lesson_4.html" class="nav-pill text-center">
                     <span class="lesson-icon">🦋</span>
                     Animals & Nature
                     <div class="text-sm opacity-75 mt-1">Lesson 4</div>
                 </a>
-                
+
                 <a href="ESL_interactive_lesson_5.html" class="nav-pill text-center opacity-75">
                     <span class="lesson-icon">🍜</span>
                     Food & Culture
                     <div class="text-sm opacity-75 mt-1">Lesson 5</div>
                 </a>
-                
+
                 <a href="ESL_interactive_lesson_6.html" class="nav-pill text-center opacity-75">
                     <span class="lesson-icon">🧑‍🤝‍🧑</span>
                     Describing People & Family
@@ -430,13 +429,13 @@
                     Shopping & Money
                     <div class="text-sm opacity-75 mt-1">Coming Soon</div>
                 </a>
-                
+
                 <a href="#" class="nav-pill text-center opacity-75">
                     <span class="lesson-icon">🏙️</span>
                     My City & Getting Around
                     <div class="text-sm opacity-75 mt-1">Coming Soon</div>
                 </a>
-                
+
                 <a href="#" class="nav-pill text-center opacity-75">
                     <span class="lesson-icon">🧘‍♀️</span>
                     Health & Wellness
@@ -444,12 +443,10 @@
                 </a>
             </div>
 
-            <!-- English for Business Series Title -->
             <div class="my-12 py-4 w-full text-center font-extrabold text-3xl text-[#FFD166] border-b-4 border-[#118AB2] tracking-wide">
                 English for Business Series - 商業英語系列
             </div>
 
-            <!-- Navigation Cards for Business Lessons -->
             <div class="nav-grid mb-12 fade-in-delay">
                 <a href="Effective_Business_Meetings_Presentations.html" class="nav-pill text-center opacity-75">
                     <span class="lesson-icon">
@@ -460,7 +457,7 @@
                     Effective Business Meetings & Presentations
                     <div class="text-sm opacity-75 mt-1">Enter</div>
                 </a>
-                
+
                 <a href="Cross_Cultural_Business_Communications.html" class="nav-pill text-center opacity-75">
                     <span class="lesson-icon">
                         <svg class="w-8 h-8 mx-auto text-[#FFD166]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -470,7 +467,7 @@
                     Cross-Cultural Business Communication
                     <div class="text-sm opacity-75 mt-1">Enter</div>
                 </a>
-                
+
                 <a href="Problem_Solving_Decision_Making.html" class="nav-pill text-center opacity-75">
                     <span class="lesson-icon">
                         <svg class="w-8 h-8 mx-auto text-[#FFD166]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -482,9 +479,7 @@
                 </a>
             </div>
 
-            <!-- Main Content Card -->
             <div class="glass p-8 md:p-12 text-center relative overflow-hidden fade-in-delay">
-                <!-- Cute Mascot -->
                 <div class="mascot-container">
                     <div class="mascot-ear"></div>
                     <div class="mascot-ear"></div>
@@ -507,35 +502,33 @@
                     <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
                         Welcome to Your English Learning Journey! 🚀
                     </h2>
-                    
+
                     <p class="text-lg text-white/90 leading-relaxed mb-8">
                         Dive into dynamic lessons designed for all levels, from kids to adults! Our interactive approach focuses on practical communication skills, making learning English fun and intuitive. Explore topics like daily routines, travel, hobbies, food, culture, grammar essentials, vocabulary building, and more.
                     </p>
 
-                    <!-- Feature highlights -->
                     <div class="grid md:grid-cols-3 gap-6 mt-8 text-center">
                         <div class="glass-dark p-6 rounded-2xl">
                             <div class="text-3xl mb-3">🎮</div>
                             <h3 class="text-white font-semibold mb-2">Interactive Games</h3>
                             <p class="text-white/70 text-sm">Learn through fun, engaging activities that make studying feel like playing!</p>
                         </div>
-                        
+
                         <div class="glass-dark p-6 rounded-2xl">
                             <div class="text-3xl mb-3">📱</div>
                             <h3 class="text-white font-semibold mb-2">Mobile Friendly</h3>
                             <p class="text-white/70 text-sm">Study anywhere, anytime on any device. Perfect for busy learners!</p>
                         </div>
-                        
+
                         <div class="glass-dark p-6 rounded-2xl">
                             <div class="text-3xl mb-3">🎯</div>
                             <h3 class="text-white font-semibold mb-2">Practical Skills</h3>
                             <p class="text-white/70 text-sm">Focus on real-world communication that you'll actually use!</p>
                         </div>
                     </div>
-                   <div class="flex justify-center gap-8 mt-16">
-    <!-- Curriculum Roadmap Box -->
+                    <div class="flex justify-center gap-8 mt-16">
     <div class="max-w-lg p-8 rounded-3xl shadow-2xl bg-white/10 backdrop-blur-md border border-white/20"
-         style="box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);">
+          style="box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);">
         <a href="curriculum_lesson_1_20.html"
            class="block text-white font-bold py-3 px-8 rounded-full shadow-lg hover:opacity-90 transition duration-300 transform hover:scale-105"
            style="background: linear-gradient(135deg, #ff6b9d, #c44569); text-align: center;">
@@ -552,13 +545,12 @@
         </div>
         <div class="text-center text-sm text-white/70 mt-4">
             <a href="https://line.me/ti/p/8aTx6bdZyh" target="_blank" class="underline hover:text-white">
-                Contact website designer  -  聯絡老師/網站設計師
+                Contact website designer - 聯絡老師/網站設計師
             </a>
         </div>
     </div>
-    <!-- Testimonial Box -->
     <div class="max-w-lg p-8 rounded-3xl shadow-2xl bg-white/10 backdrop-blur-md border border-white/20"
-         style="box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);">
+          style="box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);">
         <h2 class="text-white font-bold text-xl mb-4 text-center">Testimonial</h2>
         <p class="text-white/80 text-base italic text-center">
             “Roland老師教學方式靈活，課堂內容豐富又有趣，孩子每次上完課都很開心，進步看得見。我們全家都很信任他！”
