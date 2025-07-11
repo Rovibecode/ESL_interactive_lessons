@@ -328,10 +328,10 @@
             }
         }
 
-        /* Responsive grid for navigation */
+        /* Responsive grid for navigation - Removed custom grid-template-columns */
         .nav-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            /* grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); */ /* REMOVED THIS */
             gap: 16px;
         }
 
@@ -367,27 +367,25 @@
         <div class="particle"></div>
     </div>
 
-   <div class="relative z-10 min-h-screen py-8 px-4">
-    <div class="max-w-6xl mx-auto">
-        <div class="flex items-center justify-center mb-12 fade-in">
-            <img src="teachTWcom_logo_1.png" alt="Logo" class="h-[150px] w-[150px] mr-4">
-            <div class="text-center">
-                <h1 class="text-5xl md:text-6xl font-bold text-white mb-4">
-                    ESL Interactive
-                    <span class="bg-gradient-to-r from-pink-300 to-yellow-300 bg-clip-text text-transparent">
-                        Lessons
-                    </span>
-                    ✨
-                </h1>
-                <p class="text-xl text-white/80 font-light">
-                    Learn English in the most fun and engaging way possible! - 用最有趣、最吸引人的方式學英文！
-                </p>
+    <div class="relative z-10 min-h-screen py-8 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex items-center justify-center mb-12 fade-in">
+                <img src="teachTWcom_logo_1.png" alt="Logo" class="h-[156px] w-[156px] mr-4">
+                <div class="text-center">
+                    <h1 class="text-5xl md:text-6xl font-bold text-white mb-4">
+                        ESL Interactive
+                        <span class="bg-gradient-to-r from-pink-300 to-yellow-300 bg-clip-text text-transparent">
+                            Lessons
+                        </span>
+                        ✨
+                    </h1>
+                    <p class="text-xl text-white/80 font-light">
+                        Learn English in the most fun and engaging way possible! - 用最有趣、最吸引人的方式學英文！
+                    </p>
+                </div>
             </div>
-        </div>
-    </div>
-</div>
 
-            <div class="nav-grid mb-12 fade-in-delay">
+            <div class="nav-grid mb-12 fade-in-delay grid grid-cols-1 md:grid-cols-3">
                 <a href="ESL_interactive_lesson_plan_1.html" class="nav-pill text-center">
                     <span class="lesson-icon">🌅</span>
                     Daily Routines
@@ -447,7 +445,7 @@
                 English for Business Series - 商業英語系列
             </div>
 
-            <div class="nav-grid mb-12 fade-in-delay">
+            <div class="nav-grid mb-12 fade-in-delay grid grid-cols-1 md:grid-cols-3">
                 <a href="Effective_Business_Meetings_Presentations.html" class="nav-pill text-center opacity-75">
                     <span class="lesson-icon">
                         <svg class="w-8 h-8 mx-auto text-[#FFD166]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -527,43 +525,41 @@
                         </div>
                     </div>
                     <div class="flex justify-center gap-8 mt-16">
-    <div class="max-w-lg p-8 rounded-3xl shadow-2xl bg-white/10 backdrop-blur-md border border-white/20"
-          style="box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);">
-        <a href="curriculum_lesson_1_20.html"
-           class="block text-white font-bold py-3 px-8 rounded-full shadow-lg hover:opacity-90 transition duration-300 transform hover:scale-105"
-           style="background: linear-gradient(135deg, #ff6b9d, #c44569); text-align: center;">
-            Curriculum Roadmap
-        </a>
-        <p class="text-white/60 text-sm mt-8 text-center">
-            Created with 💖 for language learners everywhere
-        </p>
-        <div class="text-center mt-8 text-sm">
-            <a href="https://rovibecode.github.io/ESL_interactive_lessons/resume.html" target="_blank" rel="noopener"
-               class="text-white/70 hover:text-white font-bold underline transition">
-                View teacher resume/CV.
-            </a>
-        </div>
-        <div class="text-center text-sm text-white/70 mt-4">
-            <a href="https://line.me/ti/p/8aTx6bdZyh" target="_blank" class="underline hover:text-white">
-                Contact website designer - 聯絡老師/網站設計師
-            </a>
-        </div>
-    </div>
-    <div class="max-w-lg p-8 rounded-3xl shadow-2xl bg-white/10 backdrop-blur-md border border-white/20"
-          style="box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);">
-        <h2 class="text-white font-bold text-xl mb-4 text-center">Testimonial</h2>
-        <p class="text-white/80 text-base italic text-center">
-            “Roland老師教學方式靈活，課堂內容豐富又有趣，孩子每次上完課都很開心，進步看得見。我們全家都很信任他！”
-        </p>
-        <div class="text-white/60 text-sm mt-6 text-center">
-            — Roger Liou, Yunlin County
-        </div>
-    </div>
-</div>
+                        <div class="max-w-lg p-8 rounded-3xl shadow-2xl bg-white/10 backdrop-blur-md border border-white/20"
+                              style="box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);">
+                            <a href="curriculum_lesson_1_20.html"
+                               class="block text-white font-bold py-3 px-8 rounded-full shadow-lg hover:opacity-90 transition duration-300 transform hover:scale-105"
+                               style="background: linear-gradient(135deg, #ff6b9d, #c44569); text-align: center;">
+                                Curriculum Roadmap
+                            </a>
+                            <p class="text-white/60 text-sm mt-8 text-center">
+                                Created with 💖 for language learners everywhere
+                            </p>
+                            <div class="text-center mt-8 text-sm">
+                                <a href="https://rovibecode.github.io/ESL_interactive_lessons/resume.html" target="_blank" rel="noopener"
+                                   class="text-white/70 hover:text-white font-bold underline transition">
+                                    View teacher resume/CV.
+                                </a>
+                            </div>
+                            <div class="text-center text-sm text-white/70 mt-4">
+                                <a href="https://line.me/ti/p/8aTx6bdZyh" target="_blank" class="underline hover:text-white">
+                                    Contact website designer - 聯絡老師/網站設計師
+                                </a>
+                            </div>
+                        </div>
+                        <div class="max-w-lg p-8 rounded-3xl shadow-2xl bg-white/10 backdrop-blur-md border border-white/20"
+                              style="box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);">
+                            <h2 class="text-white font-bold text-xl mb-4 text-center">Testimonial</h2>
+                            <p class="text-white/80 text-base italic text-center">
+                                “Roland老師教學方式靈活，課堂內容豐富又有趣，孩子每次上完課都很開心，進步看得見。我們全家都很信任他！”
+                            </p>
+                            <div class="text-white/60 text-sm mt-6 text-center">
+                                — Roger Liou, Yunlin County
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </div> </div>
 </body>
 </html>
