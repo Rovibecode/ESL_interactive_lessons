@@ -77,6 +77,7 @@
             font-weight: 600;
             cursor: pointer;
             transition: background-color 0.2s;
+            margin: 0.5rem; /* Added margin for separation */
         }
         .print-button:hover {
             background-color: #2563eb; /* Darker blue on hover */
@@ -97,8 +98,14 @@
                 max-width: 100%;
                 border-radius: 0;
             }
-            .print-button-container {
-                display: none; /* Hide print button when printing */
+            .print-button-container, .lang-link {
+                display: none; /* Hide print button and language link when printing */
+            }
+            .english-resume, .chinese-resume {
+                page-break-after: always; /* Ensure each resume starts on a new page */
+            }
+            .chinese-resume {
+                display: block !important; /* Ensure the Chinese resume is visible when printing */
             }
             h1 { font-size: 16pt; }
             h2 { font-size: 12pt; }
@@ -116,13 +123,33 @@
             }
         }
     </style>
+    <script>
+        function printEnglishResume() {
+            var originalBody = document.body.innerHTML;
+            var englishContent = document.getElementById('englishResume').outerHTML;
+            document.body.innerHTML = englishContent;
+            window.print();
+            document.body.innerHTML = originalBody; // Restore original content
+            location.reload(); // Reload to ensure scripts and event listeners are re-attached
+        }
+
+        function printChineseResume() {
+            var originalBody = document.body.innerHTML;
+            var chineseContent = document.getElementById('chineseResume').outerHTML;
+            document.body.innerHTML = chineseContent;
+            window.print();
+            document.body.innerHTML = originalBody; // Restore original content
+            location.reload(); // Reload to ensure scripts and event listeners are re-attached
+        }
+    </script>
 </head>
 <body>
     <div class="print-button-container">
-        <button class="print-button" onclick="window.print()">Print Resume</button>
+        <button class="print-button" onclick="printEnglishResume()">Print English Resume</button>
+        <a href="#chineseResume" class="lang-link text-blue-600 hover:underline" style="display: block; margin-top: 1rem;">履歷 (中文)</a>
     </div>
 
-    <div class="resume-container">
+    <div id="englishResume" class="resume-container english-resume">
         <div class="flex flex-col sm:flex-row items-center sm:items-start justify-between mb-6">
             <div class="text-center sm:text-left flex-grow">
                 <h1 class="text-4xl font-bold text-gray-900 leading-tight mb-2">C. Roland Craeye</h1>
@@ -134,9 +161,7 @@
                 </div>
             </div>
             <div class="mt-4 sm:mt-0 flex-shrink-0 flex items-center space-x-2 image-group">
-                <!-- Headshot Placeholder - now square with rounded corners -->
                 <img src="headshot53.jpg" alt="Headshot" class="rounded-lg w-24 h-24 object-cover border-2 border-gray-300">
-                <!-- LINE QR Code Placeholder -->
                 <img src="Line_QR.jpg" alt="LINE QR Code" class="rounded-lg w-24 h-24 object-cover border-2 border-gray-300">
             </div>
         </div>
@@ -180,18 +205,6 @@
                     <li>Cultivated a portfolio of private tutoring clients (both children and adults), consistently providing approximately 6 hours of personalized instruction per week.</li>
                 </ul>
             </div>
-
-            <!-- Placeholder for Previous Job Title if applicable -->
-            <!--
-            <div class="experience-item mb-4">
-                <h3 class="text-xl font-semibold text-gray-800">[Previous Job Title] | [Previous Company Name]</h3>
-                <p class="text-gray-600">[City, Country] | [Start Date] – [End Date]</p>
-                <ul class="list-disc ml-6 text-gray-700">
-                    <li>[Key Achievement 1: Focus on transferable skills. If you have any prior teaching, tutoring, or mentoring experience, highlight it here.]</li>
-                    <li>[Key Achievement 2: Example: "Mentored junior colleagues, providing guidance on professional development and communication best practices."]</li>
-                </ul>
-            </div>
-            -->
         </section>
 
         <section class="mb-6">
@@ -249,21 +262,153 @@
                 <li>Adaptability: Highly adaptable to new environments and learning methodologies.</li>
             </ul>
         </section>
-    
-    <div style="text-align: center; margin-top: 2rem; font-size: 0.85rem; color: #6b7280;">
-    <a href="index.html" target="_blank" rel="noopener" style="color: #3b82f6; text-decoration: none; opacity: 0.7;">
-        Visit my ESL interactive lessons website
-    </a>
-</div>
-        <!-- Centered image between the two links -->
-<div style="display: flex; justify-content: center; align-items: center; margin-top: 1.5rem;">
-    <img src="summer_camp.JPG" alt="Summer Camp 2025" style="width: 280px; max-width: 100%; height: auto; border-radius: 8px; display: block;">
-</div>
-    <div style="text-align: center; margin-top: 2rem; font-size: 0.85rem; color: #6b7280;">
-    <a href="https://www.rolandcraeye.com" target="_blank" rel="noopener" style="color: #3b82f6; text-decoration: none; opacity: 0.7;">
-        Visit my business and technology website: www.rolandcraeye.com
-    </a>
-</div>
-</div>
+        
+        <div style="text-align: center; margin-top: 2rem; font-size: 0.85rem; color: #6b7280;">
+            <a href="index.html" target="_blank" rel="noopener" style="color: #3b82f6; text-decoration: none; opacity: 0.7;">
+                Visit my ESL interactive lessons website
+            </a>
+        </div>
+        <div style="display: flex; justify-content: center; align-items: center; margin-top: 1.5rem;">
+            <img src="summer_camp.JPG" alt="Summer Camp 2025" style="width: 280px; max-width: 100%; height: auto; border-radius: 8px; display: block;">
+        </div>
+        <div style="text-align: center; margin-top: 2rem; font-size: 0.85rem; color: #6b7280;">
+            <a href="https://www.rolandcraeye.com" target="_blank" rel="noopener" style="color: #3b82f6; text-decoration: none; opacity: 0.7;">
+                Visit my business and technology website: www.rolandcraeye.com
+            </a>
+        </div>
+    </div>
+
+    <div class="print-button-container" style="margin-top: 4rem;">
+        <button class="print-button" onclick="printChineseResume()">Print Chinese Resume</button>
+    </div>
+
+    <div id="chineseResume" class="resume-container chinese-resume" style="display: none;">
+        <div class="flex flex-col sm:flex-row items-center sm:items-start justify-between mb-6">
+            <div class="text-center sm:text-left flex-grow">
+                <h1 class="text-4xl font-bold text-gray-900 leading-tight mb-2">C. Roland Craeye</h1>
+                <div class="contact-info text-gray-700">
+                    <p>0976215527</p>
+                    <p class="font-bold">r.craeye@gmail.com</p>
+                    <p><a href="https://www.linkedin.com/in/rolandcraeye" target="_blank" class="text-blue-600 hover:underline">linkedin.com/in/rolandcraeye</a></p>
+                    <p class="font-bold">美國公民</p>
+                </div>
+            </div>
+            <div class="mt-4 sm:mt-0 flex-shrink-0 flex items-center space-x-2 image-group">
+                <img src="headshot53.jpg" alt="Headshot" class="rounded-lg w-24 h-24 object-cover border-2 border-gray-300">
+                <img src="Line_QR.jpg" alt="LINE QR Code" class="rounded-lg w-24 h-24 object-cover border-2 border-gray-300">
+            </div>
+        </div>
+
+        <section class="mb-6">
+            <h2 class="text-2xl font-semibold border-b-2 border-gray-300 pb-2 mb-4">個人簡述</h2>
+            <p class="text-gray-700 leading-relaxed">
+                <span class="font-bold">尋求於台灣斗六市（或附近地區）具挑戰性的企業英語培訓師職位</span>，我是一位成就卓著且注重成果的英語專業人士。憑藉在教練、專案管理和業務發展方面的堅實背景，以及豐富的跨文化溝通、培訓和策略規劃經驗，我擅長開發和提供客製化的語言課程，以提升工程師和企業人員的專業溝通技能，並成功協助專業人士培養全球溝通能力，顯著提升商業英語水平。
+            </p>
+        </section>
+
+        <section class="mb-6">
+            <h2 class="text-2xl font-semibold border-b-2 border-gray-300 pb-2 mb-4">工作經歷</h2>
+
+            <div class="experience-item mb-4">
+                <h3 class="text-xl font-semibold text-gray-800">首席顧問 | Global Operator Systems · 自由職業者</h3>
+                <p class="text-gray-600">台灣 · 混合工作 | 2025年1月 – 至今 · 7個月</p>
+                <ul class="list-disc ml-6 text-gray-700">
+                    <li>開發並實施為遠端專業人士、交易員和全球操作員設計的AI增強型收入系統，優化財務績效。</li>
+                    <li>領導私人諮詢專案，整合自動化、數位策略和職業績效優化，以實現客戶目標。</li>
+                    <li>業務遍及亞洲、美國和歐洲，建立敏捷系統，促進國際流動專業人士的快速收入生成。</li>
+                    <li>引領為全球工作量身打造的專業工具和產品發布，由操作員精心設計，為操作員服務。</li>
+                </ul>
+            </div>
+
+            <div class="experience-item mb-4">
+                <h3 class="text-xl font-semibold text-gray-800">創始人兼導師 | Yournomadscool.com · 自由職業者</h3>
+                <p class="text-gray-600">亞洲 · 遠端 | 2024年6月 – 至今 · 1年2個月</p>
+                <ul class="list-disc ml-6 text-gray-700">
+                    <li>創建並提供遠端工作精通計畫，指導數位遊民在不同國際市場設計可持續的收入策略。</li>
+                    <li>開發並實施地點獨立的客戶獲取、戰略利基定位和收入多元化框架。</li>
+                    <li>指導個人優化職業績效，並建立彈性、全球導向的收入組合。</li>
+                </ul>
+            </div>
+
+            <div class="experience-item mb-4">
+                <h3 class="text-xl font-semibold text-gray-800">英語教師 | 補習班：雲林縣超越私立英語補習班</h3>
+                <p class="text-gray-600">台灣斗六 | 2024年 – 2025年</p>
+                <ul class="list-disc ml-6 text-gray-700">
+                    <li>實施創新教學策略，超越死記硬背，為小學至高中（1-11年級）學生營造引人入勝的互動學習環境。</li>
+                    <li>培養私人輔導客戶群（包括兒童和成人），每週穩定提供約6小時的客製化教學。</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="mb-6">
+            <h2 class="text-2xl font-semibold border-b-2 border-gray-300 pb-2 mb-4">學歷</h2>
+
+            <div class="education-item mb-2">
+                <p class="font-semibold text-gray-800">傳播科學學士 | 魯汶大學 (KU Leuven) - 比利時</p>
+                <p class="text-gray-600">1988 - 1992</p>
+            </div>
+
+            <div class="education-item mb-2">
+                <p class="font-semibold text-gray-800">德州教師執照</p>
+                <p class="text-gray-600">德州教育局 | 2023/2028</p>
+            </div>
+
+            <div class="education-item mb-2">
+                <p class="font-semibold text-gray-800">認證ScrumMaster® (CSM®)</p>
+                <p class="text-gray-600">Scrum Alliance | 2023</p>
+                <p class="text-gray-600 text-sm">證書編號: Certified ScrumMaster® (CSM®)</p>
+            </div>
+
+            <div class="education-item mb-2">
+                <p class="font-semibold text-gray-800">Scrum基礎認證 (SFC)</p>
+                <p class="text-gray-600">Vabro.ai 和 VMEdu.com | 2023</p>
+                <p class="text-gray-600 text-sm">證書編號: 966537</p>
+            </div>
+
+            <div class="education-item mb-2">
+                <p class="font-semibold text-gray-800">TESOL</p>
+                <p class="text-gray-600">Global Leadership College | 2012</p>
+            </div>
+
+            <div class="education-item mb-2">
+                <p class="font-semibold text-gray-800">認證健康與健康教練</p>
+                <p class="text-gray-600">Wellcoaches Corporation, 教練學院 (哈佛大學推廣部) | 2014</p>
+                <p class="text-gray-600 text-sm">美國運動醫學學院認可。</p>
+            </div>
+        </section>
+
+        <section class="mb-6">
+            <h2 class="text-2xl font-semibold border-b-2 border-gray-300 pb-2 mb-4">技能</h2>
+            <div class="skills-list text-gray-700">
+                <p><strong class="text-gray-800">語言能力:</strong> 英語 (母語/流利), 荷蘭語 (流利), 法語 (中級), 德語 (中級), 國語 (初級)</p>
+                <p><strong class="text-gray-800">教學與培訓:</strong> 企業培訓, 商務英語, 技術英語, 課程開發, 成人學習原則, 需求評估, 工作坊引導, 演示技能, 雅思/托福/多益考試準備</p>
+                <p><strong class="text-gray-800">專業技能:</strong> 跨文化溝通, 策略規劃, 專案管理, 客戶關係管理, 問題解決, 分析思維, 風險溝通 ("風險緩解手冊"), 敏捷方法論 (Scrum, Kanban), 業務分析, OKRs, 六西格瑪, 銷售與行銷</p>
+                <p><strong class="text-gray-800">軟體/工具:</strong> AI/ML平台 (例如生成式AI工具, 數據分析), 進階協作套件 (例如 Microsoft 365, Google Workspace), 專案與工作流程管理 (例如 Jira, Asana, Notion), CRM/銷售自動化, 數位行銷平台, 視訊會議 (例如 Zoom, Google Meet, Microsoft Teams)</p>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="text-2xl font-semibold border-b-2 border-gray-300 pb-2 mb-4">其他資訊</h2>
+            <ul class="list-disc ml-6 text-gray-700">
+                <li>目前居住地: 台灣 (斗六市)，可立即當地工作。</li>
+                <li>良好人際交往能力: 證明能夠與不同專業團體建立融洽關係並有效互動。</li>
+                <li>適應性: 對新環境和學習方法具有高度適應性。</li>
+            </ul>
+        </section>
+        
+        <div style="text-align: center; margin-top: 2rem; font-size: 0.85rem; color: #6b7280;">
+            <a href="index.html" target="_blank" rel="noopener" style="color: #3b82f6; text-decoration: none; opacity: 0.7;">
+                訪問我的ESL互動課程網站
+            </a>
+        </div>
+        <div style="display: flex; justify-content: center; align-items: center; margin-top: 1.5rem;">
+            <img src="summer_camp.JPG" alt="Summer Camp 2025" style="width: 280px; max-width: 100%; height: auto; border-radius: 8px; display: block;">
+        </div>
+        <div style="text-align: center; margin-top: 2rem; font-size: 0.85rem; color: #6b7280;">
+            <a href="https://www.rolandcraeye.com" target="_blank" rel="noopener" style="color: #3b82f6; text-decoration: none; opacity: 0.7;">
+                訪問我的商業與科技網站: www.rolandcraeye.com
+            </a>
+        </div>
+    </div>
 </body>
 </html>
