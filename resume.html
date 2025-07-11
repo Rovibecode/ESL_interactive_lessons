@@ -82,6 +82,10 @@
         .print-button:hover {
             background-color: #2563eb; /* Darker blue on hover */
         }
+        .lang-link {
+            display: block; /* Ensure it's block for margin-top */
+            margin-top: 1rem;
+        }
 
         /* Print-specific styles */
         @media print {
@@ -102,10 +106,14 @@
                 display: none; /* Hide print button and language link when printing */
             }
             .english-resume, .chinese-resume {
-                page-break-after: always; /* Ensure each resume starts on a new page */
+                page-break-after: auto; /* Allow content to flow naturally, or use always if strict new page is needed */
             }
-            .chinese-resume {
-                display: block !important; /* Ensure the Chinese resume is visible when printing */
+            /* Only show the active resume during print, hide the other */
+            .english-resume.active-print, .chinese-resume.active-print {
+                display: block !important;
+            }
+            .english-resume:not(.active-print), .chinese-resume:not(.active-print) {
+                display: none !important;
             }
             h1 { font-size: 16pt; }
             h2 { font-size: 12pt; }
@@ -124,29 +132,51 @@
         }
     </style>
     <script>
-        function printEnglishResume() {
-            var originalBody = document.body.innerHTML;
-            var englishContent = document.getElementById('englishResume').outerHTML;
-            document.body.innerHTML = englishContent;
-            window.print();
-            document.body.innerHTML = originalBody; // Restore original content
-            location.reload(); // Reload to ensure scripts and event listeners are re-attached
+        function hideAllResumes() {
+            document.getElementById('englishResume').style.display = 'none';
+            document.getElementById('chineseResume').style.display = 'none';
         }
 
-        function printChineseResume() {
-            var originalBody = document.body.innerHTML;
-            var chineseContent = document.getElementById('chineseResume').outerHTML;
-            document.body.innerHTML = chineseContent;
-            window.print();
-            document.body.innerHTML = originalBody; // Restore original content
-            location.reload(); // Reload to ensure scripts and event listeners are re-attached
+        function showEnglishResume() {
+            hideAllResumes();
+            document.getElementById('englishResume').style.display = 'block';
+            window.scrollTo(0,0); // Scroll to top for English resume
         }
+
+        function showChineseResume() {
+            hideAllResumes();
+            document.getElementById('chineseResume').style.display = 'block';
+            document.getElementById('chineseResume').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function printResume(resumeId) {
+            // Add a class to the resume to be printed, hide others
+            const englishResume = document.getElementById('englishResume');
+            const chineseResume = document.getElementById('chineseResume');
+
+            if (resumeId === 'englishResume') {
+                englishResume.classList.add('active-print');
+                chineseResume.classList.remove('active-print');
+            } else if (resumeId === 'chineseResume') {
+                chineseResume.classList.add('active-print');
+                englishResume.classList.remove('active-print');
+            }
+            
+            window.print();
+
+            // Clean up: remove the active-print class after printing
+            englishResume.classList.remove('active-print');
+            chineseResume.classList.remove('active-print');
+        }
+
+        // Initialize view: show English resume on page load
+        document.addEventListener('DOMContentLoaded', showEnglishResume);
     </script>
 </head>
 <body>
     <div class="print-button-container">
-        <button class="print-button" onclick="printEnglishResume()">Print English Resume</button>
-        <a href="#chineseResume" class="lang-link text-blue-600 hover:underline" style="display: block; margin-top: 1rem;">履歷 (中文)</a>
+        <button class="print-button" onclick="printResume('englishResume')">Print English Resume</button>
+        <a href="javascript:void(0);" onclick="showChineseResume()" class="lang-link text-blue-600 hover:underline">履歷 (中文)</a>
     </div>
 
     <div id="englishResume" class="resume-container english-resume">
@@ -279,7 +309,8 @@
     </div>
 
     <div class="print-button-container" style="margin-top: 4rem;">
-        <button class="print-button" onclick="printChineseResume()">Print Chinese Resume</button>
+        <button class="print-button" onclick="printResume('chineseResume')">Print Chinese Resume</button>
+        <a href="javascript:void(0);" onclick="showEnglishResume()" class="lang-link text-blue-600 hover:underline">英文履歷 (English)</a>
     </div>
 
     <div id="chineseResume" class="resume-container chinese-resume" style="display: none;">
