@@ -355,6 +355,35 @@
             width: 32px;
             height: 32px;
         }
+
+        /* New: Testimonial Card Styling */
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1); /* Match glass-dark for consistency */
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px; /* Match glass/glass-dark border-radius */
+            padding: 24px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Consistent shadow */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Pushes content and name to ends */
+        }
+
+        .testimonial-card .quote {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .testimonial-card .author {
+            font-weight: 600;
+            font-size: 0.95rem;
+            opacity: 0.8;
+            margin-top: auto; /* Pushes author to the bottom if content is short */
+        }
     </style>
 </head>
 <body>
@@ -524,9 +553,50 @@
                             <p class="text-white/70 text-sm">Focus on real-world communication that you'll actually use!</p>
                         </div>
                     </div>
+                    
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mt-16 mb-8">
+                        What Clients Say 🌟
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+                        <div class="testimonial-card">
+                            <p class="quote">
+                                “Roland老師教學方式靈活，課堂內容豐富又有趣，孩子每次上完課都很開心，進步看得見。我們全家都很信任他！”
+                            </p>
+                            <p class="author">
+                                — Roger Liou, Yunlin County
+                            </p>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <p class="quote">
+                                “教學生動活潑，與孩子互動性佳，讓孩子在快樂中學習，孩子也不再畏懼開口說英語”
+                            </p>
+                            <p class="author">
+                                — 吳佩芸, Yunlin County
+                            </p>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <p class="quote">
+                                “多元活用的上課內容，以及課程中遇到不懂的地方也能親切說明，常讓孩子帶著期待的心情去學習”
+                            </p>
+                            <p class="author">
+                                — Joyce, Yunlin County
+                            </p>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <p class="quote">
+                                “老師的上課方式多元且有趣，針對不同程度的孩子，能適時的調整語速、難易度，讓孩子們總是期待每週的英文課，很幸運能遇到Roland老師，由衷感謝💕”
+                            </p>
+                            <p class="author">
+                                — Emma Chan, Yunlin County
+                            </p>
+                        </div>
+                    </div>
                     <div class="flex justify-center gap-8 mt-16">
                         <div class="max-w-lg p-8 rounded-3xl shadow-2xl bg-white/10 backdrop-blur-md border border-white/20"
-                              style="box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);">
+                             style="box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);">
                             <a href="curriculum_lesson_1_20.html"
                                class="block text-white font-bold py-3 px-8 rounded-full shadow-lg hover:opacity-90 transition duration-300 transform hover:scale-105"
                                style="background: linear-gradient(135deg, #ff6b9d, #c44569); text-align: center;">
@@ -547,19 +617,10 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="max-w-lg p-8 rounded-3xl shadow-2xl bg-white/10 backdrop-blur-md border border-white/20"
-                              style="box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);">
-                            <h2 class="text-white font-bold text-xl mb-4 text-center">Testimonial</h2>
-                            <p class="text-white/80 text-base italic text-center">
-                                “Roland老師教學方式靈活，課堂內容豐富又有趣，孩子每次上完課都很開心，進步看得見。我們全家都很信任他！”
-                            </p>
-                            <div class="text-white/60 text-sm mt-6 text-center">
-                                — Roger Liou, Yunlin County
-                            </div>
                         </div>
-                    </div>
                 </div>
             </div>
-        </div> </div>
+        </div>
+    </div>
 </body>
 </html>
