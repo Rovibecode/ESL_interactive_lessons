@@ -384,6 +384,33 @@
             opacity: 0.8;
             margin-top: auto; /* Pushes author to the bottom if content is short */
         }
+        @media (max-width: 600px) {
+  .column1, .column2 {
+    width: 100%;
+    float: none;
+    height: auto; /* Remove fixed height if not needed */
+    padding: 5px;
+  }
+  .modal {
+    width: 95%;
+    left: 2.5%;
+    padding-top: 20px;
+  }
+  .modal-content {
+    width: 95%;
+    max-width: 300px;
+  }
+  input[type="file"], input[type="text"] {
+    width: 100% !important;
+    min-width: 0;
+    max-width: 100%;
+  }
+  select, .select {
+    min-width: 0 !important;
+    width: 100% !important;
+    max-width: 100%;
+  }
+}
     </style>
 </head>
 <body>
